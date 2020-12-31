@@ -1,0 +1,29 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # https://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: postgres
+  password: postgres
+  host: localhost
+
+development:
+  <<: *default
+  database: onebitexchange_development
+  username: postgres
+  password: postgres
+  host: localhost
+
+test:
+  <<: *default
+  database: onebitexchange_test
+  username: postgres
+  password: postgres
+  host: localhost
+
+production:
+  <<: *default
+  database: onebitexchange_production
+  username: onebitexchange
+  password: <%= ENV['onebitexchange_DATABASE_PASSWORD'] %>
