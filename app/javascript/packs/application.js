@@ -8,9 +8,10 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
-require("jquery")
+require('jquery')
+require("materialize-css/dist/js/materialize")
 
-require("jquery-ujs")
-import {} from 'jquery-ujs'
-
-require("materialize-sprockets")
+// responsive navbar
+$(document).on('turbolinks:load', function() {
+  $('.sidenav').sidenav();
+});
